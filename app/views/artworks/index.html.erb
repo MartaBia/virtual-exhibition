@@ -1,0 +1,7 @@
+<div>
+  <% @artworks.each do |artwork| %>
+    <h2><%= artwork.title %></h2>
+    <p><%= artwork.description %></p>
+    <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
+  <% end %>
+</div>
