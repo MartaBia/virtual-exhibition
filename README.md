@@ -5,7 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version 
+* Ruby version - check to have ruby installed on your machine or install following the instruction
+
+install rails
+
+`gem install rails`
 
 * System dependencies
 
