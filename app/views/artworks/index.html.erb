@@ -1,7 +1,13 @@
+
+<h1>Test</h1>
+
+<div>Test 2</div>
+
 <div>
+  <p>Test 3</p>
   <% @artworks.each do |artwork| %>
-    <h2><%= artwork.title %></h2>
+    <h2><%= artwork.id %>. <%= artwork.title %></h2>
     <p><%= artwork.description %></p>
-    <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
+    <!-- <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>"> -->
   <% end %>
 </div>
