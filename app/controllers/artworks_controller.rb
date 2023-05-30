@@ -20,16 +20,22 @@ class ArtworksController < ApplicationController
 
     i = 1
     artworks_records.each do |artwork_record|
-      title = artwork_record['_primaryTitle']
-      date = artwork_record['_primaryDate']
-      artwork = Artwork.new(
-        index: i,
-        title: title.empty? ? "No title" : title,
-        description: date.empty? ? "No date" : date,
-        # image_url: artwork_record['image_url']
-      )
-      i += 1
-      artwork.save
+      image_url = artwork_record['_images']['_primary_thumbnail']
+
+      if image_url != nil
+        title = artwork_record['_primaryTitle']
+        date = artwork_record['_primaryDate']
+
+        artwork = Artwork.new(
+          index: i,
+          title: title.empty? ? "Construction Toy" : title,
+          description: date.empty? ? "No date" : date,
+          image_url: image_url,
+        )
+        i += 1
+
+        artwork.save
+      end
     end
 
     @artworks = Artwork.all
