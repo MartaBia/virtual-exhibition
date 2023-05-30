@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_135017) do
   create_table "artworks", force: :cascade do |t|
     t.integer "index"
     t.string "title"
+    t.string "date"
     t.text "description"
     t.string "object_type"
     t.string "image_url"
