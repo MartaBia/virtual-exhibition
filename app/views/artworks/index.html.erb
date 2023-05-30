@@ -6,7 +6,7 @@
 <div>
   <p>Test 3</p>
   <% @artworks.each do |artwork| %>
-    <h2><%= artwork.id %>. <%= artwork.title %></h2>
+    <h2><%= artwork.index %>. <%= artwork.title %></h2>
     <p><%= artwork.description %></p>
     <!-- <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>"> -->
   <% end %>
