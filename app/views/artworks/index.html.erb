@@ -1,13 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virtual Exhibition</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  </head>
+  <body>
 
-<h1>Test</h1>
+    <h1>Toys Through Time:</h1>
+    <h2>A Toy Story Exhibition</h2>
+    <div>
+      <% @artworks.each do |artwork| %>
+        <h2><%= artwork.index %>. <%= artwork.title %></h2>
+        <p><%= artwork.date %></p>
+        <p><%= artwork.description %></p>
+        <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
+      <% end %>
+    </div>
 
-<div>Test 2</div>
-
-<div>
-  <p>Test 3</p>
-  <% @artworks.each do |artwork| %>
-    <h2><%= artwork.index %>. <%= artwork.title %></h2>
-    <p><%= artwork.description %></p>
-    <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
-  <% end %>
-</div>
+  </body>
+</html>
