@@ -2,13 +2,14 @@
 <html>
   <head>
     <title>Virtual Exhibition</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
   </head>
   <body>
 
     <h1>Toys Through Time:</h1>
     <h2>A Toy Story Exhibition</h2>
     <div>
+      <h3>This is the homepage</h3>
       <% @artworks.each do |artwork| %>
         <h2><%= artwork.index %>. <%= artwork.title %></h2>
         <p><%= artwork.date %></p>
