@@ -5,14 +5,20 @@ class ArtworksController < ApplicationController
     # Empty the Artwork table
     Artwork.destroy_all
 
-    fetch_object_type("Construction toy")
-    fetch_object_type("Toy car")
-    fetch_object_type("Soft toy")
-    fetch_object_type("Educational toy")
-    fetch_object_type("Pull-along toy")
-    fetch_object_type("Puzzle")
-    fetch_object_type("Doll")
-    fetch_object_type("Mechanical toy")
+    object_types = [
+      "Construction toy", 
+      "Toy car",
+      "Soft toy",
+      "Educational toy",
+      "Pull-along toy",
+      "Puzzle",
+      "Doll",
+      "Mechanical toy"
+    ]
+
+    object_types.each do |object_type|
+      fetch_object_type(object_type)
+    end
 
     @artworks = Artwork.all
   end
