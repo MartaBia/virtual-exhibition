@@ -31,16 +31,16 @@ class ArtworksController < ApplicationController
 
     i = 1
     artworks_records.each do |artwork_record|
-      image_url = artwork_record['_images']['_primary_thumbnail']
-
-      if image_url != nil
+      iiif_image_base_url = artwork_record['_images']['_iiif_image_base_url']
+      image_url = "#{iiif_image_base_url}full/full/0/default.jpg"
+      if iiif_image_base_url != nil
         title = artwork_record['_primaryTitle']
         date = artwork_record['_primaryDate']
 
         artwork = Artwork.new(
           index: i,
           title: title.empty? ? object_type : title,
-          description: date.empty? ? "No date" : date,
+          date: date.empty? ? "No date" : date,
           image_url: image_url,
         )
         i += 1
