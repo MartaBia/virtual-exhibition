@@ -2,11 +2,12 @@
 
 ## About the project 
 
-Welcome to my Virtual Exhibition website! This application is powered by the V&A API and 
+Welcome to my Virtual Exhibition powered by the V&A API! This project was a fun opportunity for me to dive into the world of the V&A Museum and create a captivating website that showcases a collection of fascinating toys.
+The primary goal of this project was to explore and leverage the V&A API, utilizing its vast collection of data to curate an immersive virtual exhibition. With a passion for both technology and the arts, I wanted to create a website that not only celebrates the beauty and historical significance of toys but also serves as a testament to the power of digital platforms in bringing cultural experiences to life.
 
 ## See the website 👀
 
-If you are curious and want to the result of my website, you can find it [here](https://martabia.github.io/virtualexhibition.html)! (You will need to click on the button 'visit site' the first time you access)
+If you are curious and want to see the result of my website, you can find it [here](https://martabia.github.io/virtualexhibition.html)! (You will need to click on the button 'visit site' the first time you access.)
 
 ## Run the program 🏃🏻‍♀️
 
