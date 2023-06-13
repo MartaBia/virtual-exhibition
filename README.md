@@ -1,28 +1,51 @@
-# README
+# Virtual Exhibition
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About the project
 
-Things you may want to cover:
+Welcome to my Virtual Exhibition website! This application is powered by the V&A API and 
 
-* Ruby version - check to have ruby installed on your machine or install following the instruction
+## See the website 
 
-install rails
+If you are curious and want to the result of my website, you can find it [here](https://martabia.github.io/virtualexhibition.html)! (You will need to click on the button 'visit site' the first time you access)
 
-`gem install rails`
+## Run the program 
 
-* System dependencies
+Here are the step to install this program on your computer:
 
-* Configuration
+- Clone this repo on your local.
 
-* Database creation
+- Check to have ruby installed on your machine with the command:
 
-* Database initialization
+  `ruby -v`
 
-* How to run the test suite
+  or install it following the instruction [on the Ruby website](ruby-lang.org/en/documentation/installation/).
 
-* Services (job queues, cache servers, search engines, etc.)
+- Install rails:
 
-* Deployment instructions
+  `gem install rails`
 
-* ...
+- Install the dipendencies by running:
+
+  `bundle install` 
+  
+  from  the root directory
+
+- Migrate the db:
+
+  `rails db:migrate RAILS_ENV=development`
+
+
+- Start the server with the command:
+
+  `rails s`
+
+
+## Technologies
+
+
+
+## Work in progress
+
+Moving forward, my focus for this website is to continue improving the presentation of artworks. 
+I would like to create a homepage that shows different sections dedicated to specific types of artwork.
+Each section will redirect users to dedicated webpages showcasing the collection of artworks belonging to that particular category.
