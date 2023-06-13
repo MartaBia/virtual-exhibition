@@ -39,6 +39,12 @@ Here are the step to install this program on your computer:
 - Start the server with the command:
 
   `rails s`
+  
+  Better to this from a second terminal
+  
+- From your browser connect to: 
+  
+  http://localhost:3000/
 
 
 ## Technologies 🛠️
