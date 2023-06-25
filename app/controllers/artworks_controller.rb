@@ -2,8 +2,6 @@ require 'httparty'
 
 class ArtworksController < ApplicationController
   def index
-    Artwork.destroy_all
-
     object_types = [
       "Construction toy", 
       "Toy car",
@@ -15,11 +13,12 @@ class ArtworksController < ApplicationController
       "Mechanical toy"
     ]
 
+    artwork_sections = []
     object_types.each do |object_type|
-      fetch_object_type(object_type)
+      artwork_sections.push(fetch_object_type(object_type))
     end
 
-    @artworks = Artwork.all
+    @artwork_sections = artwork_sections
   end
 
   private
@@ -30,10 +29,11 @@ class ArtworksController < ApplicationController
     artworks_records = artworks_data["records"]
 
     i = 1
+    artworks_section_temp_array = []
     artworks_records.each do |artwork_record|
       iiif_image_base_url = artwork_record['_images']['_iiif_image_base_url']
-      image_url = "#{iiif_image_base_url}full/full/0/default.jpg"
       if iiif_image_base_url != nil
+        image_url = "#{iiif_image_base_url}full/full/0/default.jpg"
         title = artwork_record['_primaryTitle']
         date = artwork_record['_primaryDate']
 
@@ -45,8 +45,16 @@ class ArtworksController < ApplicationController
         )
         i += 1
 
-        artwork.save
+        artworks_section_temp_array.push(artwork)
       end
     end
+
+    artwork_section = ArtworkSection.new(
+      name: object_type,
+      artworks: artworks_section_temp_array
+    )
+
+    puts "***Artwork Section - Index:***\n#{artwork_section.name}:\n#{artwork_section.artworks}"
+    return artwork_section
   end
 end

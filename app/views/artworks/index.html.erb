@@ -15,6 +15,8 @@
       .custom-background {
         background-color: #d2cece;
         border-radius: 10px;
+        margin-bottom: 25px;
+        padding-bottom: calc(var(--bs-gutter-x) * .5);
       }
 
       .bd-placeholder-img {
@@ -23,6 +25,8 @@
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
+        object-fit: cover;
+        object-position: 50% 25%;
       }
 
       @media (min-width: 768px) {
@@ -49,6 +53,16 @@
       .bi {
         vertical-align: -.125em;
         fill: currentColor;
+      }
+
+      .main-title-block {
+        padding-bottom: 0rem!important;
+      }
+
+      .section-title {
+        padding-bottom: 25px;
+        padding-top: 25px;
+        font-size: 36px;
       }
 
       .nav-scroller {
@@ -112,7 +126,7 @@
       </div>
     </header>
     <main>
-      <section class="py-5 text-center container">
+      <section class="py-5 text-center container main-title-block">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">Toys Through Time:</h1>
@@ -122,28 +136,33 @@
         </div>
       </section>
 
-      <div class="container custom-background">
-        <div class="row row-cols-1 row-cols-md-3 g-3">
-          <% @artworks.each do |artwork| %>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>" class="card-img-top">
-                <div class="card-body">
-                  <h3><%= artwork.index %>. <%= artwork.title %></h3>
-                  <p><%= artwork.date %></p>
-                  <p class="card-text"><%= artwork.description %></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+      <% @artwork_sections.each do |artwork_section| %>
+        <div class="container">
+          <h2 class="fw-light section-title"><%= "#{artwork_section.name}s" %></h2>
+        </div>
+        <div class="container custom-background">
+          <div class="row row-cols-1 row-cols-md-3 g-3">
+              <% artwork_section.artworks.each do |artwork| %>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>" class="bd-placeholder-img card-img-top" width="100%" height="350"></img>
+                    <div class="card-body">
+                      <h3><%= artwork.index %>. <%= artwork.title %></h3>
+                      <p><%= artwork.date %></p>
+                      <p class="card-text"><%= artwork.description %></p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <!-- <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </div> -->
+                        <!-- <small class="text-body-secondary">9 mins</small>  -->
+                      </div>
                     </div>
-                    <!-- <small class="text-body-secondary">9 mins</small> -->
                   </div>
                 </div>
-              </div>
-            </div>
-          <% end %>
+              <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </main>
     <footer class="text-body-secondary py-5">
       <div class="container">
