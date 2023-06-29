@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "artworks#index"
+  # Dinamic pages:
+  get "/:page_name", to: "pages#show"
 end

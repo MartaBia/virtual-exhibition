@@ -15,7 +15,7 @@ class ArtworksController < ApplicationController
 
     artwork_sections = []
     object_types.each do |object_type|
-      artwork_sections.push(fetch_object_type(object_type))
+      artwork_sections.push(generate_artwork_section(object_type))
     end
 
     @artwork_sections = artwork_sections
@@ -23,6 +23,20 @@ class ArtworksController < ApplicationController
 
   private
 
+  def generate_artwork_section(object_type)
+    url_section = object_type.downcase
+    url_section.sub!(" ", "_")
+    # Not working
+    # url_section[" "]= "_"
+    artwork_section = ArtworkSection.new(
+      name: object_type,
+      url: url_section
+    )
+
+    return artwork_section
+  end
+
+  # To move in pages_controller.rb
   def fetch_object_type(object_type)
     response = HTTParty.get("https://api.vam.ac.uk/v2/objects/search?q_object_type='#{object_type}'")
     artworks_data = JSON.parse(response.body)
@@ -48,13 +62,13 @@ class ArtworksController < ApplicationController
         artworks_section_temp_array.push(artwork)
       end
     end
-
+    
+    # Not needed, to remove
     artwork_section = ArtworkSection.new(
       name: object_type,
-      artworks: artworks_section_temp_array
+      artworks: artworks_section_temp_array,
     )
 
-    puts "***Artwork Section - Index:***\n#{artwork_section.name}:\n#{artwork_section.artworks}"
     return artwork_section
   end
 end
