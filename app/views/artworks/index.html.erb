@@ -147,8 +147,9 @@
           <% else %>
             <div class="col-md-7">
           <% end %>
-            <h2 class="featurette-heading fw-normal lh-1"><%= "#{artwork_section.name}s" %></h2>
-            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+            <% name = "#{artwork_section.name}s" %>
+            <h2 class="featurette-heading fw-normal lh-1"><%= name %></h2>
+            <p class="lead">Dive into the magical worls of <%= name.downcase %>.</p> 
           </div>
 
           <div class="col-md-5">

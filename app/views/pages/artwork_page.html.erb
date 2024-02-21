@@ -136,45 +136,31 @@
         </div>
       </section>
 
-      <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+      <div class="container">
+        <% artwork_section_name = "#{@artwork_section.name}s" %>
+        <h2 class="fw-light section-title"><%= artwork_section_name %></h2>
+        <!-- Creating a link with the _path method:
+        <%= link_to "Open", pages_path(artwork_section.url) %> -->
       </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
-      </div>
-    </div>
 
-      <% @artwork_sections.each do |artwork_section| %>
-        <div class="container">
-          <h2 class="fw-light section-title"><%= "#{artwork_section.name}s" %></h2>
-        </div>
-        <div class="container custom-background">
-          <div class="row row-cols-1 row-cols-md-3 g-3">
-              <% artwork_section.artworks.each do |artwork| %>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>" class="bd-placeholder-img card-img-top" width="100%" height="350"></img>
-                    <div class="card-body">
-                      <h3><%= artwork.index %>. <%= artwork.title %></h3>
-                      <p><%= artwork.date %></p>
-                      <p class="card-text"><%= artwork.description %></p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <!-- <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        </div> -->
-                        <!-- <small class="text-body-secondary">9 mins</small>  -->
-                      </div>
+      <div class="container custom-background">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <% @artworks.each do |artwork| %>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>" class="bd-placeholder-img card-img-top" width="100%" height="350"></img>
+                  <div class="card-body">
+                    <h3><%= artwork.index %>. <%= artwork.title %></h3>
+                    <p><%= artwork.date %></p>
+                    <p class="card-text"><%= artwork.description %></p>
+                    <div class="d-flex justify-content-between align-items-center">
                     </div>
                   </div>
                 </div>
-              <% end %>
-          </div>
+              </div>
+            <% end %>
         </div>
-      <% end %>
+      </div>
     </main>
     <footer class="text-body-secondary py-5">
       <div class="container">
